@@ -1,0 +1,79 @@
+//CREACION DE LA BASE DE DATOS---------------------------------
+//TABLAS
+create table sala (
+	id varchar(2) not null,
+	asientos int,
+	estado varchar(15),
+	primary key (id)
+);
+create table pelicula (
+	id varchar(10) not null,
+	titulo varchar(30),
+	duracion time,
+	lenguaje varchar(20),
+	subtitulos varchar(20),
+	clasificacion varchar(3),
+	formato varchar(2),
+	primary key (id)
+);
+create table entrada (
+	num serial not null,
+	num_funcion int,
+	asiento varchar(4),
+	vendida boolean,
+	primary key(num)
+);
+create table cliente (
+	num serial not null,
+	nombre varchar(75),
+	id varchar(10),
+	fecha_nacimiento date,
+	email varchar(50),
+	telefono varchar(10),
+	tipo varchar(15),
+	primary key (num)
+);
+create table funcion (
+	num serial not null,
+	id_pelicula varchar(10),
+	id_sala varchar(2),
+	fecha date,
+	hora time,
+	primary key(num)
+);
+create table reserva (
+	num serial not null,
+	num_entrada int,
+	num_cliente int,
+	primary key (num)
+);
+//LLAVES FORANEAS
+alter table entrada add constraint funcion foreign key (num_funcion) references funcion(num);
+alter table funcion add constraint pelicula foreign key (id_pelicula) references pelicula(id);
+alter table funcion add constraint sala foreign key (id_sala) references sala(id);
+alter table reserva add constraint entrada foreign key (num_entrada) references entrada(num);
+alter table reserva add constraint cliente foreign key (num_cliente) references cliente(num);
+//-------------------------------------------------------------
+//INSERCION DE DATOS-------------------------------------------
+//SALAS
+insert into sala values('A1',50,'DISPONIBLE');
+insert into sala values('A2',100,'DISPONIBLE');
+//PELICULAS
+insert into pelicula values ('ERLLAESP3D','El Rey Leon','02:03:00','Español','ninguno','A','3D');
+insert into pelicula values ('SPIDYESP3D','Spiderman: Lejos de Casa','02:30:01','Español','ninguno','A','3D');
+insert into pelicula values ('TOYSTESP2D','Toy Story 4','01:59:09','Español','Español','AA','2D');
+insert into pelicula values ('MNTUKFRN2D','Volver a Montauk','03:43:23','Frances','Español','C','2D');
+insert into pelicula values ('UTOYAING2D','Atentado Utoya','01:30:44','Ingles','Español','B15','2D');
+//FUNCIONES
+insert into funcion values (default, 'SPIDYESP3D', 'A1', '18/07/2019', '14:00:00');
+insert into funcion values (default, 'TOYSTESP2D', 'A2', '18/07/2019', '14:00:00');
+insert into funcion values (default, 'UTOYAING2D', 'A2', '18/07/2019', '23:30:00');
+insert into funcion values (default, 'MNTUKFRN2D', 'A2', '19/07/2019', '03:00:00');
+insert into funcion values (default, 'ERLLAESP3D', 'A1', '19/07/2019', '20:00:00');
+insert into funcion values (default, 'ERLLAESP3D', 'A2', '19/07/2019', '20:00:00');
+insert into funcion values (default, 'ERLLAESP3D', 'A1', '19/07/2019', '17:00:00');
+insert into funcion values (default, 'ERLLAESP3D', 'A2', '19/07/2019', '17:00:00');
+//---------------------------------------------------------------
+//CREACION DE VISTAS---------------------------------------------
+//CARTELERA
+create view cartelera as select titulo, formato, lenguaje, hora, num from pelicula join funcion on id = id_pelicula;
