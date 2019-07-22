@@ -4,22 +4,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CtrlVP implements ActionListener {
-    
+
     private VistaPrincipal vista;
-    
+
     public CtrlVP(VistaPrincipal vista) {
         this.vista = vista;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource()==vista.getBtnReservar()){
+        if (ae.getSource() == vista.getBtnReservar()) {
             vista.getModelo().vistaReservar();
             vista.dispose();
         }
-        if(ae.getSource()==vista.getBtnReservas()){
-            
+        if (ae.getSource() == vista.getBtnReservas()) {
+
+        }
+        if (ae.getSource() == vista.getBtnSalas()) {
+
+        }
+        if (ae.getSource() == vista.getBtnFunciones()) {
+
+        }
+        if (ae.getSource() == vista.getBtnClientes()) {
+
         }
     }
-    
 }

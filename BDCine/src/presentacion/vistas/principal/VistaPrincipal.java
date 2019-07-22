@@ -15,6 +15,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         initComponents();
         btnReservar.addActionListener(ctrl);
         btnReservas.addActionListener(ctrl);
+        btnSalas.addActionListener(ctrl);
+        btnFunciones.addActionListener(ctrl);
+        btnClientes.addActionListener(ctrl);
     }
 
     public Modelo getModelo() {
