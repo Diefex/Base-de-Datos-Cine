@@ -124,4 +124,8 @@ public class SQL {
             e.printStackTrace();
         }
     }
+    
+    public void generarEntradas(){
+        
+    }
 }

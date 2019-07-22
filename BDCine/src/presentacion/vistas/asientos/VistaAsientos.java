@@ -12,14 +12,16 @@ public class VistaAsientos extends javax.swing.JFrame {
     private Modelo modelo;
     private CtrlVA ctrl;
     private String numFuncion;
+    private int numCliente;
     private final int TAMBTN = 60;
     private ArrayList<JButton> btnsAsientos = new ArrayList<JButton>();
     private int tamX = 0, tamY = 0;
 
-    public VistaAsientos(Modelo modelo, ArrayList<String> asientos, ArrayList<String> vendidas, String numFuncion) {
+    public VistaAsientos(Modelo modelo, ArrayList<String> asientos, ArrayList<String> vendidas, String numFuncion, int numCliente) {
         this.modelo = modelo;
         this.ctrl = new CtrlVA(this);
         this.numFuncion = numFuncion;
+        this.numCliente = numCliente;
         if (asientos.size() > 0) {
             Collections.sort(asientos);
             char a = asientos.get(0).charAt(0);
@@ -57,6 +59,10 @@ public class VistaAsientos extends javax.swing.JFrame {
 
     public String getNumFuncion() {
         return numFuncion;
+    }
+
+    public int getNumCliente() {
+        return numCliente;
     }
 
     public Modelo getModelo() {

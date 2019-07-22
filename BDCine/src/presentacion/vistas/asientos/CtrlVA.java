@@ -29,7 +29,7 @@ public class CtrlVA implements ActionListener {
             ArrayList<String> valores = new ArrayList<String>();
             valores.add("default");
             valores.add(numEntrada);
-            valores.add("null");
+            valores.add(""+vista.getNumCliente());
             vista.getModelo().insert("reserva", valores);
             ArrayList<String> campos = new ArrayList<String>();
             ArrayList<String> condiciones = new ArrayList<String>();
