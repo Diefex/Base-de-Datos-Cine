@@ -12,6 +12,7 @@ import javax.swing.JButton;
 public class CtrlVA implements ActionListener {
     
     private VistaAsientos vista;
+    private ArrayList vendidos;
     
     public CtrlVA (VistaAsientos vista) {
         this.vista = vista;
@@ -30,9 +31,16 @@ public class CtrlVA implements ActionListener {
             valores.add(numEntrada);
             valores.add("null");
             vista.getModelo().insert("reserva", valores);
+            ArrayList<String> campos = new ArrayList<String>();
+            ArrayList<String> condiciones = new ArrayList<String>();
+            campos.add("vendida=true");
+            condiciones.add("asiento='"+asiento+"'");
+            vista.getModelo().update("entrada", campos, condiciones);
         } catch (SQLException ex) {
             Logger.getLogger(CtrlVA.class.getName()).log(Level.SEVERE, null, ex);
         }
+        vista.getModelo().vistaPrincipal();
+        vista.dispose();
     }
     
 }

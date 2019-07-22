@@ -16,7 +16,7 @@ public class VistaAsientos extends javax.swing.JFrame {
     private ArrayList<JButton> btnsAsientos = new ArrayList<JButton>();
     private int tamX = 0, tamY = 0;
 
-    public VistaAsientos(Modelo modelo, ArrayList<String> asientos, String numFuncion) {
+    public VistaAsientos(Modelo modelo, ArrayList<String> asientos, ArrayList<String> vendidas, String numFuncion) {
         this.modelo = modelo;
         this.ctrl = new CtrlVA(this);
         this.numFuncion = numFuncion;
@@ -25,16 +25,21 @@ public class VistaAsientos extends javax.swing.JFrame {
             char a = asientos.get(0).charAt(0);
             int x = 10, y = 55;
             int fila = 0;
-            for (String asiento : asientos) {
-                if (asiento.charAt(0) != a) {
+            for (int i=0; i<asientos.size(); i++) {
+                if (asientos.get(i).charAt(0) != a) {
                     if (tamX < x) {
                         tamX = x;
                     }
                     x = 10;
                     y += TAMBTN;
-                    a = asiento.charAt(0);
+                    a = asientos.get(i).charAt(0);
                 }
-                JButton btn = new JButton(asiento);
+                JButton btn = new JButton(asientos.get(i));
+                for(String vendida : vendidas){
+                    if(asientos.get(i).equalsIgnoreCase(vendida)){
+                        btn.setEnabled(false);
+                    }
+                }
                 btn.setBounds(x, y, TAMBTN, TAMBTN);
                 btn.addActionListener(ctrl);
                 btnsAsientos.add(btn);

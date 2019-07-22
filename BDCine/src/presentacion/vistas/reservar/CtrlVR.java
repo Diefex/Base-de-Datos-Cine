@@ -23,16 +23,21 @@ public class CtrlVR implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == vista.getBtnReservar()) {
             ArrayList<String> asientos = new ArrayList<String>();
-            ResultSet result = vista.getModelo().select("asiento", "entrada", "num_funcion="+numFunciones.get(vista.getSelectedFuncion()));
+            ArrayList<String> vendidas = new ArrayList<String>();
+            ResultSet result = vista.getModelo().select("asiento, vendida", "entrada", "num_funcion="+numFunciones.get(vista.getSelectedFuncion()));
             try {
                 while (result.next()) {
                     asientos.add(result.getString("asiento"));
+                    if(result.getBoolean("vendida")){
+                        vendidas.add(result.getString("asiento"));
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(CtrlVR.class.getName()).log(Level.SEVERE, null, ex);
             }
-            VistaAsientos v = new VistaAsientos(vista.getModelo(), asientos, numFunciones.get(vista.getSelectedFuncion()));
+            VistaAsientos v = new VistaAsientos(vista.getModelo(), asientos, vendidas, numFunciones.get(vista.getSelectedFuncion()));
             v.setVisible(true);
+            vista.dispose();
         }
         if (ae.getSource() == vista.getBtnCancelar()) {
             vista.getModelo().vistaPrincipal();

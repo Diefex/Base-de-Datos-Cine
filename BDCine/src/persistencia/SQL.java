@@ -19,7 +19,7 @@ public class SQL {
     private SQL() {
         BD = "jdbc:postgresql://localhost:5432/Cine";
         USER = "postgres";
-        PASS = "postgres2019";
+        PASS = "postgrespass";
     }
     
     public static SQL comando(){
@@ -80,6 +80,41 @@ public class SQL {
             int resultado = psql.executeUpdate();
             if(resultado==1){
                 System.out.println("insert Realizado");
+            }
+            psql.close();
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void update(String tabla, ArrayList<String> campos, ArrayList<String> condiciones){
+        try (Connection connection = DriverManager.getConnection(BD, USER, PASS)) {
+
+            String ins = "UPDATE " + tabla + " SET ";
+            for (int i = 0; i < campos.size(); i++) {
+                if (i == 0) {
+                    ins += campos.get(i);
+                } else {
+                    ins += "," + campos.get(i);
+                }
+            }
+            ins += " WHERE ";
+            for (int i = 0; i < condiciones.size(); i++) {
+                if (i == 0) {
+                    ins += condiciones.get(i);
+                } else {
+                    ins += "," + condiciones.get(i);
+                }
+            }
+            ins += "; ";
+
+            PreparedStatement psql = connection.prepareStatement(ins);
+            int resultado = psql.executeUpdate();
+            if(resultado==1){
+                System.out.println("update Realizado");
             }
             psql.close();
 
