@@ -34,6 +34,10 @@ public class CtrlVR implements ActionListener {
             VistaAsientos v = new VistaAsientos(vista.getModelo(), asientos, numFunciones.get(vista.getSelectedFuncion()));
             v.setVisible(true);
         }
+        if (ae.getSource() == vista.getBtnCancelar()) {
+            vista.getModelo().vistaPrincipal();
+            vista.dispose();
+        }
     }
 
     public void actualizarLista() {

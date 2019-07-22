@@ -19,6 +19,7 @@ public class VistaReservar extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         initComponents();
         btnReservar.addActionListener(ctrl);
+        btnCancelar.addActionListener(ctrl);
         mdlLista = new DefaultListModel();
         ctrl.actualizarLista();
         lstFuncion.setModel(mdlLista);

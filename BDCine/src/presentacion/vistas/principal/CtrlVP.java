@@ -18,16 +18,20 @@ public class CtrlVP implements ActionListener {
             vista.dispose();
         }
         if (ae.getSource() == vista.getBtnReservas()) {
-
+            vista.getModelo().vistaSelects(4);
+            vista.dispose();
         }
         if (ae.getSource() == vista.getBtnSalas()) {
-
+            vista.getModelo().vistaSelects(3);
+            vista.dispose();
         }
         if (ae.getSource() == vista.getBtnFunciones()) {
-
+            vista.getModelo().vistaSelects(2);
+            vista.dispose();
         }
         if (ae.getSource() == vista.getBtnClientes()) {
-
+            vista.getModelo().vistaSelects(1);
+            vista.dispose();
         }
     }
 }

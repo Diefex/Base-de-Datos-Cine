@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import persistencia.SQL;
 import presentacion.vistas.principal.VistaPrincipal;
 import presentacion.vistas.reservar.VistaReservar;
+import presentacion.vistas.selects.VistaSelects;
 
 public class Modelo {
     
@@ -31,6 +32,11 @@ public class Modelo {
     public void insert(String tabla, ArrayList<String> valores){
         SQL sql = SQL.comando();
         sql.insert(tabla, valores);
+    }
+
+    public void vistaSelects(int Opcion) {
+        VistaSelects vistaS = new VistaSelects(this,Opcion);
+        vistaS.setVisible(true);
     }
     
 }
