@@ -34,7 +34,7 @@ public class CtrlVA implements ActionListener {
             ArrayList<String> campos = new ArrayList<String>();
             ArrayList<String> condiciones = new ArrayList<String>();
             campos.add("vendida=true");
-            condiciones.add("asiento='"+asiento+"'");
+            condiciones.add("asiento='"+asiento+"' and num_funcion='"+vista.getNumFuncion()+"'");
             vista.getModelo().update("entrada", campos, condiciones);
         } catch (SQLException ex) {
             Logger.getLogger(CtrlVA.class.getName()).log(Level.SEVERE, null, ex);

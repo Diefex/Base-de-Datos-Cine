@@ -17,9 +17,9 @@ public class SQL {
     private final String PASS;
 
     private SQL() {
-        BD = "jdbc:postgresql://localhost:5432/Cine";
+        BD = "jdbc:postgresql://localhost:5433/Cine";
         USER = "postgres";
-        PASS = "postgrespass";
+        PASS = "postgres2019";
     }
     
     public static SQL comando(){
@@ -126,6 +126,359 @@ public class SQL {
     }
     
     public void generarEntradas(){
-        
+        int funcion = 1;
+            char letra = 'A';
+            try (Connection connection = DriverManager.getConnection(BD, USER, PASS)) {
+                while (funcion != 9) {
+                    switch (funcion) {
+                        case 1:
+                            do { //Caso A1
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'F');
+                            letra ='A';
+                            break;
+                        case 2:
+                            do { //Caso A2
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    case 'F':
+                                        letra = 'G';
+                                        break;
+                                    case 'G':
+                                        letra = 'H';
+                                        break;
+                                    case 'H':
+                                        letra = 'I';
+                                        break;
+                                    case 'I':
+                                        letra = 'J';
+                                        break;
+                                    case 'J':
+                                        letra = 'K';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'K');
+                            letra ='A';
+                            break;
+                        case 3:
+                            do { //Caso A2
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    case 'F':
+                                        letra = 'G';
+                                        break;
+                                    case 'G':
+                                        letra = 'H';
+                                        break;
+                                    case 'H':
+                                        letra = 'I';
+                                        break;
+                                    case 'I':
+                                        letra = 'J';
+                                        break;
+                                    case 'J':
+                                        letra = 'K';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'K');
+                            letra ='A';
+                            break;
+                        case 4:
+                            do { //Caso A2
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    case 'F':
+                                        letra = 'G';
+                                        break;
+                                    case 'G':
+                                        letra = 'H';
+                                        break;
+                                    case 'H':
+                                        letra = 'I';
+                                        break;
+                                    case 'I':
+                                        letra = 'J';
+                                        break;
+                                    case 'J':
+                                        letra = 'K';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'K');
+                            letra ='A';
+                            break;
+                        case 5:
+                            do { //Caso A1
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'F');
+                            letra ='A';
+                            break;
+                        case 6:
+                            do { //Caso A2
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    case 'F':
+                                        letra = 'G';
+                                        break;
+                                    case 'G':
+                                        letra = 'H';
+                                        break;
+                                    case 'H':
+                                        letra = 'I';
+                                        break;
+                                    case 'I':
+                                        letra = 'J';
+                                        break;
+                                    case 'J':
+                                        letra = 'K';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'K');
+                            letra ='A';
+                            break;
+                        case 7:
+                            do { //Caso A1
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'F');
+                            letra ='A';
+                            break;
+                        case 8:
+                            do { //Caso A2
+                                for (int numero = 0; numero < 10; numero++) {
+                                    String ins = "INSERT INTO ENTRADA(num, num_funcion, asiento, vendida) VALUES (default," + funcion + ", '" + letra + String.valueOf(numero) + "',false);";
+                                    PreparedStatement psql = connection.prepareStatement(ins);
+                                    int resultado = psql.executeUpdate();
+                                    if (resultado == 1) {
+                                        System.out.println("Insert Realizado");
+                                    }
+                                    psql.close();
+                                }
+                                switch (letra) {
+                                    case 'A':
+                                        letra = 'B';
+                                        break;
+                                    case 'B':
+                                        letra = 'C';
+                                        break;
+                                    case 'C':
+                                        letra = 'D';
+                                        break;
+                                    case 'D':
+                                        letra = 'E';
+                                        break;
+                                    case 'E':
+                                        letra = 'F';
+                                        break;
+                                    case 'F':
+                                        letra = 'G';
+                                        break;
+                                    case 'G':
+                                        letra = 'H';
+                                        break;
+                                    case 'H':
+                                        letra = 'I';
+                                        break;
+                                    case 'I':
+                                        letra = 'J';
+                                        break;
+                                    case 'J':
+                                        letra = 'K';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            } while (letra != 'K');
+                            letra ='A';
+                            break;
+                        default:
+                            break;
+                    }
+                    funcion++;
+                }
+            } catch (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }

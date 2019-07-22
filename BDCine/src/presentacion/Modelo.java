@@ -12,6 +12,8 @@ public class Modelo {
     public void vistaPrincipal() {
         VistaPrincipal vistaP = new VistaPrincipal(this);
         vistaP.setVisible(true);
+        SQL sql = SQL.comando();
+        //sql.generarEntradas();
     }
 
     public void vistaReservar() {
