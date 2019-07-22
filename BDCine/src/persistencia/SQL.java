@@ -19,7 +19,7 @@ public class SQL {
     private SQL() {
         BD = "jdbc:postgresql://localhost:5432/Cine";
         USER = "postgres";
-        PASS = "postgrespass";
+        PASS = "postgres2019";
     }
     
     public static SQL comando(){
@@ -40,7 +40,7 @@ public class SQL {
             return resultSet;
 
         } catch (SQLException e) {
-            System.out.println("Falló la conexion. execpcion SQL");
+            System.out.println("Falló la conexion. excepcion SQL");
             e.printStackTrace();
             return null;
         }
